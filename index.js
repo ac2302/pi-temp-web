@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const server = http.createServer(app);
 const io = socketio(server);
 
-const PORT = process.env.PORT|5501;
+const PORT = process.env.PORT;
 server.listen(PORT, () => {
 	console.log(`server live on port ${PORT}`);
 });
