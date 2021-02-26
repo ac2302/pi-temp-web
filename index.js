@@ -5,13 +5,14 @@ const socketio = require('socket.io');
 
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 const server = http.createServer(app);
 const io = socketio(server);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT|5501;
 server.listen(PORT, () => {
 	console.log(`server live on port ${PORT}`);
 });
