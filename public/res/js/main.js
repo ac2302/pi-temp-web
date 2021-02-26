@@ -6,8 +6,11 @@ function setTemp(temp) {
 }
 
 
-socket.on('temp', (temp) => setTemp(temp));
+socket.on('temp', (temp) => {
+	setTemp(temp);
+	chartTemp(temp);
+});
 
 socket.emit('temp-req');
-setInterval(() => socket.emit('temp-req'), 5000);
+setInterval(() => socket.emit('temp-req'), 1000);
 
