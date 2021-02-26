@@ -8,7 +8,7 @@ function setTemp(temp) {
 
 socket.on('temp', (temp) => {
 	setTemp(temp);
-	chartTemp(temp);
+	plotTemp(temp);
 });
 
 socket.emit('temp-req');

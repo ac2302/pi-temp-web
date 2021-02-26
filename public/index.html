@@ -1,26 +1,18 @@
 <html>
 	<head>
 		<title>Pi-Temp-Web</title>
+		<link rel="stylesheet" href="res/css/main.css"></style>
 	</head>
 	<body>
 		<h1>
 			temperature: <span id="temp"></span>°C
 		</h1>
 		
-		
-		<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+		<canvas id="smoothie-chart" width="688" height="208">
 
-		
-
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"
-			integrity="sha512-FJ2OYvUIXUqCcPf1stu+oTBlhn54W0UisZB/TNrZaVMHHhYvLBV9jMbvJYtvDe5x/WVaoXZ6KB+Uqe5hT2vlyA=="
-			crossorigin="anonymous"
-		></script>
-
+		<script type="text/javascript" src="res/lib/js/smoothie.js"></script>
 		<script src="res/js/chart.js"></script>
-
+		
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="res/js/main.js"></script>
 	</body>

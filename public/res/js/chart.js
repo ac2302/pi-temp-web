@@ -1,46 +1,16 @@
-let points = 0;
-function chartTemp(temp) {
-	addData([[points, temp]]);
-	points++;
+var chart = new SmoothieChart({millisPerPixel:100,grid:{strokeStyle:'#000000',borderVisible:false},labels:{precision:6},tooltip:true,timestampFormatter:SmoothieChart.timeFormatter,maxValue:100,minValue:30}),
+    canvas = document.getElementById('smoothie-chart'),
+    series = new TimeSeries();
+    throttle = new TimeSeries();
+    critical = new TimeSeries();
+
+chart.addTimeSeries(series, {lineWidth:2,strokeStyle:'#00ff00'});
+chart.addTimeSeries(throttle, {lineWidth:0.5,strokeStyle:'#880000'});
+chart.addTimeSeries(critical, {lineWidth:0.5,strokeStyle:'#ff0000'});
+chart.streamTo(canvas, 0);
+
+function plotTemp(temp) {
+	series.append(new Date().getTime(), temp);
+	throttle.append(new Date().getTime(), 80);
+	critical.append(new Date().getTime(), 85);
 }
-
-// chart stuff
-
-var dataPoints = [];
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	theme: "light2",
-	title: {
-		text: "Temperature",
-	},
-	data: [
-		{
-			type: "area",
-			dataPoints: dataPoints,
-		},
-	],
-});
-
-// Initial Values
-var xValue = 0;
-var yValue = 10;
-var newDataCount = 1;
-
-function addData(data) {
-	if (newDataCount != 1) {
-		$.each(data, function (key, value) {
-			dataPoints.push({ x: value[0], y: parseInt(value[1]) });
-			xValue++;
-			yValue = parseInt(value[1]);
-		});
-	} else {
-		//dataPoints.shift();
-		dataPoints.push({ x: data[0][0], y: parseInt(data[0][1]) });
-		xValue++;
-		yValue = parseInt(data[0][1]);
-	}
-
-	newDataCount = 1;
-	chart.render();
-}
-
