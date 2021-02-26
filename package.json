@@ -1,0 +1,27 @@
+{
+  "name": "pi-temp-web",
+  "version": "1.0.0",
+  "description": "A web interface to view the cpu temperature of a raspberry pi written in nodejs. Tested on raspberry pi 4 model B",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ac2302/pi-temp-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ac2302/pi-temp-web/issues"
+  },
+  "homepage": "https://github.com/ac2302/pi-temp-web#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^3.1.2"
+  }
+}
