@@ -1,4 +1,4 @@
-var chart = new SmoothieChart({millisPerPixel:100,grid:{strokeStyle:'#000000',borderVisible:false},labels:{precision:6},tooltip:true,timestampFormatter:SmoothieChart.timeFormatter,maxValue:100,minValue:30}),
+var chart = new SmoothieChart({millisPerPixel:100,grid:{strokeStyle:'#000000',borderVisible:false},labels:{precision:6},tooltip:true,timestampFormatter:SmoothieChart.timeFormatter,maxValue:100,minValue:0}),
     canvas = document.getElementById('smoothie-chart'),
     series = new TimeSeries();
     throttle = new TimeSeries();
